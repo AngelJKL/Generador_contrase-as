@@ -1,7 +1,9 @@
 var cantidad = document.getElementById('cantidad');
 let boton = document.getElementById('generar');
+let botonLimpiar = document.getElementById('limpiar')
+
 let contraseña = document.getElementById('contrasena');
-const cadenaCaracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01';
+const cadenaCaracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01!@#$%^&*() ';
 
 function generar(){
 
@@ -9,7 +11,7 @@ function generar(){
 
     console.log(numeroDigitado);
     if(numeroDigitado < 8 ){
-    alert("La cantidad de caracteres tiene que ser mayo que 8");
+    alert("La cantidad de caracteres tiene que ser mayor que 8");
     }
     let password = '';
     for( let i= 0; i <  numeroDigitado; i++  ) {
@@ -22,6 +24,12 @@ function generar(){
     }
     contrasena.value= password;
 
+    function limpiarContraseña(){
+        contraseña.value = '';
+    }
+
+    botonLimpiar.addEventListener('click',limpiarContraseña);
+    
 }
 
 
